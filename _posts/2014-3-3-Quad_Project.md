@@ -4,7 +4,7 @@ title: "End to End Ballistic Interception and Emergent Atheleticsm of Quadrupeda
 ---
 
 ### Abstract
-This project presents a learning based solution for the predictive ballistic interception task ("catching"/colliding with a thrown ball) for a quadruped (Unitree Go2). We utilize a multi-stage curriculum, progressing from the baseline interception task to learning environments designed to induce more "atheleticism". The result is a control policy that exihibits certain emergent capabilities not explicitly enforced through reward design, and a conversion methodology we'll call "Ghosting" to repurpose this control policy into a locomotion controller.
+This project presents a learning-based solution for the predictive ballistic interception task ("catching"/colliding with a thrown ball) for a quadruped (Unitree Go2). We utilize a multi-stage curriculum, progressing from the baseline interception task to learning environments designed to induce more "athleticism". The result is a control policy that exhibits certain emergent capabilities not explicitly enforced through reward design, and a conversion methodology we'll call "Ghosting" to repurpose this control policy into a locomotion controller.
 
 ---
 
