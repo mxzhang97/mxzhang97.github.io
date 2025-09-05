@@ -180,14 +180,14 @@ We show two video examples of this below. The first example is the artifact in a
 We wanted to push the control policy's performance by increasing its expressiveness through the `action_scale` hyper parameter. We hypothesized that the higher `action_scale` would produce faster and more dynamic movements. However, our results were more nuanced and counter-intuitive. (This is caveated by the fact that PD tuning was out of scope for this project). In essense, we observe that the higher action_scales causes instability that introduce more hesitant behavior. Likely this is the result of more frequent saturation of torque limits causing unpredictable joint responses, which then causes highly penalizing terminations within training, leading to more cautious behavior. Below, we show the speed profiles during a set of catch episodes, with both throws that are within the performance envelope (3.2m) and throws that are further (3.6m). We note specifically the undesired behavior of the `action_scale=0.6` in the below video example, where the control policy stutter steps in its locomotion phase, not utilizing it's full atheletic capability when pushing the envelope. In contrast, the `action_scale=0.5` control policy generally exhibit better behavior in this regard, and it is this stability that we capitalize in the later sections.
 
 <figure style="text-align: center;">
-  <img src="{{ site.baseurl }}/images/vel_0.5.png" alt="Velocity Profile during Catch (0.5 Action Scale)>
+  <img src="{{ site.baseurl }}/images/vel_0.5.png" alt="Velocity Profile during Catch (0.5 Action Scale)">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
     Fig 5: We see the 0.5 action scale policy is able to consistently utilize high velocity even in "reach" distances.
   </figcaption>
 </figure>
 
 <figure style="text-align: center;">
-  <img src="{{ site.baseurl }}/images/vel_0.6.png" alt="Velocity Profile during Catch (0.6 Action Scale)>
+  <img src="{{ site.baseurl }}/images/vel_0.6.png" alt="Velocity Profile during Catch (0.6 Action Scale)">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
     Fig 6: The 0.6 action scale policy exhibits the most undesired behavior under "reach" distances (stuttering).
   </figcaption>
@@ -195,7 +195,7 @@ We wanted to push the control policy's performance by increasing its expressiven
 
 
 <figure style="text-align: center;">
-  <img src="{{ site.baseurl }}/images/vel_0.75.png" alt="Velocity Profile during Catch (0.75 Action Scale)>
+  <img src="{{ site.baseurl }}/images/vel_0.75.png" alt="Velocity Profile during Catch (0.75 Action Scale)">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
     Fig 7: The 0.75 action scale policy achieves similar behavior as 0.5 action scale here, however, does so with more "uncertainty" as shown below in the video.
   </figcaption>
