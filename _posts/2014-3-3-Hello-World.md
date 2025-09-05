@@ -3,13 +3,10 @@ layout: post
 title: "Project Chimera: A Novel Control Methodology for Legged Robots"
 ---
 
-### Abstract
-This project is the deliverable of a one-month, high-fidelity work simulation undertaken in response to direct feedback from a tech lead at Tesla Optimus. The core contribution is "Ghosting," a novel, general-purpose control methodology designed to enhance stability and robustness in legged robots. This page presents the undeniable body of evidence—video demonstrations and quantitative analysis—that proves the value of this approach and showcases a top-tier robotics engineering skill set.
+### Problem Description and Learning-Based Solution
+This report and subsequent analysis focuses on a learning based solution for the predictive ballistic interception task ("catching"/colliding with a thrown ball) for a quadruped (Go2). We utilize a multi-stage curriculum, with each curriculum stage focusing on solving/developing a different dimension of the learning problem. The result is a control policy capable of emergent atheletic intelligence, and a conversion methodology we'll call "Ghosting" to repurpose this control policy into a locomotion controller.
 
 ---
-
-## The Project Trailer
-This video summarizes the project's narrative and showcases the final performance of the controller in a seamless, "GTA-style" driving demo.
 
 <!-- HOW-TO: Go to your YouTube video, click "Share" -> "Embed", and copy the src="..." URL here. -->
 <div class="video-container">
