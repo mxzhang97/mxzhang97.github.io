@@ -13,16 +13,26 @@ This report and subsequent analysis focuses on a learning based solution for the
     <!-- Left Video: The Interception Skill -->
     <div class="video-item">
         <div class="video-container">
-            <!-- RENDER 1: 4-panel view of drills and catches -->
-            <iframe src="https://www.youtube.com/embed/-F0L2Z_LisA" title="Interception Skills" frameborder="0" allowfullscreen></iframe>
+            <iframe 
+                src="https://www.youtube.com/embed/-F0L2Z_LisA?&autoplay=1&mute=1&loop=1&playlist=-F0L2Z_LisA&playsinline=1" 
+                title="Interception Skills Showcase" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
         <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Left:</strong> General and specialized interception skill. </p>
     </div>
     <!-- Right Video: The "Ghosting" Application -->
     <div class="video-item">
         <div class="video-container">
-            <!-- RENDER 2: Short clip of driving around -->
-            <iframe src="https://www.youtube.com/embed/Y5Rdwf-AbWo" title="Ghosting Demo" frameborder="0" allowfullscreen></iframe>
+            <iframe 
+                src="https://www.youtube.com/embed/Y5Rdwf-AbWo?&autoplay=1&mute=1&loop=1&playlist=Y5Rdwf-AbWo&playsinline=1" 
+                title="Ghosting Locomotion Demo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
         <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Right:</strong> The repurposed "Ghosting" controller for locomotion.</p>
     </div>
