@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Project Chimera: A Novel Control Methodology for Legged Robots"
+title: "End to End Ballistic Interception and Emergent Atheleticsm of Quadrupedal Robot"
 ---
 
 ### Abstract
