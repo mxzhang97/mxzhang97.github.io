@@ -63,7 +63,7 @@ The control problem is formulated as a standard reinforcement learning task. The
 | `catch_state` | A binary flag indicating if the catch event is active. | 1 |
 | | | |
 | **Action Space** | | **12** |
-| Target Joint Position Offsets | The policy outputs a vector of target deviations from the default pose. | 12 |
+| `joint_pos_delta` | The policy outputs a vector of target deviations from the default pose. | 12 |
 | | | |
 | **Reward Structure** | *Note: Terms are modulated across curriculum stages.* | |
 | *Task-Specific Rewards* | | |
