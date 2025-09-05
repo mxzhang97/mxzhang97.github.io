@@ -121,11 +121,55 @@ Here we show the policy's performance in specalized drills, where the ball is co
 
 #### Learned Bias
 
-Here we show the learning artifacts induced by an ego-centric learning environement (IE throws are sampled relative to the robot's orientation.)
+Here we show the learning artifacts induced by an ego-centric learning environement (IE throws are continuously sampled relative to the robot's orientation within an episode). Comparing the evaluation results of Fig 2. and Fig. 3 above, we notice a marked difference in performance for the left box drill. This behaviorial artifact is induced by the ego-centric learning envrionment, as throws are always sampled relative to the robot's current orientation, any excess yaw motion (shown in the video below) is not explicitly penalized (from both a reward perspective, and a task perspective). Thus, we see that the yaw bias puts the throws outside the performance envelope of the policy within the world frame evaluation framework, causing failure for those samples. More simply put, the policy yaws right after catching the ball, in a learning environment where the throws are sampled relative to this orientation, the policy is not explcitly penalized for this behavior. However, when the throws are fixed to the world frame, the excess yaw moves the throw (relative to the robot) to outside the capabilities of the policy, causing failure. 
 
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+
+We show two video examples of this below. The first example is the artifact in action during the initial stabilization phase (after the asset spawns within the simulation), this is the 0.75 action-scale (we found the most extreme version of this) and a scatter plot within the "General Catch" evaluation framework. The yaw bias active in the initial stabilization phase of the episode angles the robot to the right, and thus causes failure for throws coming from the left. The second example goes back our best policy, `action_scale = 0.5` is showing for shorter distance throws within the specialized drills evaluation framework (World Frame), we show this yaw bias throughout the catch task, as the initial pushoff yaws the robot, then the interception arc corrects, but results in a yawed orientation after the throw. This puts the robot at a disadvantageous position for subsequent throws (since they're still directionally anchored to the World Frame), causing failure.
+
+<!-- HOW-TO: Go to your YouTube video, click "Share" -> "Embed", and copy the src="..." URL here. -->
+<div class="video-grid">
+    <!-- Left Video: The Interception Skill -->
+    <div class="video-item">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/-F0L2Z_LisA?&autoplay=1&mute=1&loop=1&playlist=-F0L2Z_LisA&playsinline=1" 
+                title="Interception Skills Showcase" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Left:</strong> Yaw Aritifact in Stabilization Phase </p>
+    </div>
+    <!-- Right Video: The "Ghosting" Application -->
+    <div class="video-item">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/Y5Rdwf-AbWo?&autoplay=1&mute=1&loop=1&playlist=Y5Rdwf-AbWo&playsinline=1" 
+                title="Ghosting Locomotion Demo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Right:</strong> Failure in Specialized Drills (World Frame) </p>
+    </div>
 </div>
+
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_scatter.png" alt="Curriculum Progression Scatter Plot">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 1: This scatter compares the control policy's performance envelope across the learning environment cross section for the <code>action_scale = 0.5</code> policy. Throws &lt;2.2m and &gt;3.2m are out-of-sample.
+  </figcaption>
+</figure>
+
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval3.png" alt="Curriculum Progression Drills Chart (Body Frame)">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 2: This chart shows the control policy's "atheletic" capabilities through the curriculum progression for the <code>action_scale = 0.5</code> policy. 
+  </figcaption>
+</figure>
 
 
 #### Expressiveness vs Stability
