@@ -183,8 +183,33 @@ Here we look at the performance/tradeoffs of increasing action_scale.
 
 [plot of eval2, world frame evaluation showing learned bias again across the action_scales]
 
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-grid">
+    <!-- Left Video: The Interception Skill -->
+    <div class="video-item">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/aa-tc-ftCuk?&autoplay=1&mute=1&loop=1&playlist=aa-tc-ftCuk&playsinline=1" 
+                title="Skill-Balanced Curriculum General Catch (0.5-0.75 Action Scale)" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Left:</strong> Skill Balanced Curriculum, 3.2m-3.6m Throws (0.5-0.75 Action Scale) </p>
+    </div>
+    <!-- Right Video: The "Ghosting" Application -->
+    <div class="video-item">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/eXcGdqI3qyU?&autoplay=1&mute=1&loop=1&playlist=eXcGdqI3qyU&playsinline=1" 
+                title="Performance-Limit Curriculum General Catch (0.5-0.75 Action Scale)" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Right:</strong> Performance Limit Curriculum, 3.2m-3.6m Throws (0.5-0.75 Action Scale)  </p>
+    </div>
 </div>
 
 ---
