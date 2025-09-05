@@ -85,10 +85,9 @@ The control problem is formulated as a standard reinforcement learning task. The
 
 The earlier stages of the learning environments focuses on general omni-directional locomotion for intercepting the thrown ball. We utilize canonical locomotion rewards available in public domain, the privileged reward `xy_distance_reward`, and `proximity_reward` to facilitate this stage of learning (solving the sparse learning signal problem). Later stages of learning environments prioritize "atheleticism", and thus removes these reward terms and rely on the main `catch_reward` and the long-episode construction to embed value for stability.
 
-This scatter compares the control policy's performance envelope across the learning environment cross section for `action_scale = 0.5` policy across a variety of throws (<2.2m, >3.2m are out of sample throws).
 
 <figure style="text-align: center;">
-  <img src="{{ site.baseurl }}/images/curriculum_scatter.png" alt="Curriculum Progression Scatter Plot">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_scatter.png" alt="Curriculum Progression Scatter Plot">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
     Fig 1: This scatter compares the control policy's performance envelope across the learning environment cross section for the <code>action_scale = 0.5</code> policy. Throws &lt;2.2m and &gt;3.2m are out-of-sample.
   </figcaption>
