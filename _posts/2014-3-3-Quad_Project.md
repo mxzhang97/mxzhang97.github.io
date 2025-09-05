@@ -43,8 +43,6 @@ This project presents a learning-based solution for the predictive ballistic int
 ## Control Policy
 For brevity, we focus on the best control policy for this section. The learning problem is defined as this follows,
 
----
-
 ### The Problem Formulation
 
 The control problem is formulated as a standard reinforcement learning task. The policy is trained to map observations from a 52-dimensional space to actions in a 12-dimensional space.
