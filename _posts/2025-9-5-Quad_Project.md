@@ -157,6 +157,13 @@ We show two video examples of this below. The first example is the artifact in a
     </div>
 </div>
 
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.75_scatter.png" alt="General Catch (Action Scale Comparison) Scatter Plot">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 4: An extreme version of the artifact (<code>action_scale=0.75</code>). The yaw bias during the initial stabilization angles the robot to the right, causing it to fail on throws from the left.
+  </figcaption>
+</figure>
+
 
 
 #### Expressiveness vs Stability
