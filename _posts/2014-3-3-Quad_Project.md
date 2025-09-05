@@ -47,7 +47,7 @@ For brevity, we focus on the best control policy for this section. The learning 
 
 ### The Problem Formulation
 
-The control problem is formulated as a standard reinforcement learning task. The policy is trained to map observations from a 52-dimensional space to actions in a 12-dimensional space to maximize a cumulative reward. The specific components are detailed below.
+The control problem is formulated as a standard reinforcement learning task. The policy is trained to map observations from a 52-dimensional space to actions in a 12-dimensional space.
 
 | Component | Description | Dimension |
 | :--- | :--- | :---: |
