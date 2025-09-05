@@ -85,6 +85,9 @@ The control problem is formulated as a standard reinforcement learning task. The
 
 The earlier stages of the learning environments focuses on general omni-directional locomotion for intercepting the thrown ball. We utilize canonical locomotion rewards available in public domain, the privileged reward `xy_distance_reward`, and `proximity_reward` to facilitate this stage of learning (solving the sparse learning signal problem). Later stages of learning environments prioritize "atheleticism", and thus removes these reward terms and rely on the main `catch_reward` and the long-episode construction to embed value for stability.
 
+#### General "Catch" Capability
+
+Here we show the general catch, which is defined as catching a single instance of a ball thrown in the forward facing semi circle.
 
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_scatter.png" alt="Curriculum Progression Scatter Plot">
@@ -97,8 +100,9 @@ The earlier stages of the learning environments focuses on general omni-directio
   <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-#### Atheletcism Comparison
-This plot shows the capability progression through the multi-stage curriculum for `action_scale = 0.5`.
+#### Athleticism Comparison
+
+Here we show the policy's performance in specalized drills, where the ball is continously thrown after the policy completes each catch event, with the throw types following a predefined sequence (linear, zig-zag, right/left box drills). 
 
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval3.png" alt="Curriculum Progression Drills Chart (Body Frame)">
