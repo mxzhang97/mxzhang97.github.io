@@ -52,31 +52,31 @@ The control problem is formulated as a standard reinforcement learning task. The
 | Component | Description | Dimension |
 | :--- | :--- | :---: |
 | **Observation Space** | | **52** |
-| Root Linear Velocity | The robot's linear velocity in the body frame (`x, y, z`). | 3 |
-| Root Angular Velocity | The robot's angular velocity in the body frame (`roll, pitch, yaw`). | 3 |
-| Projected Gravity | The gravity vector projected onto the robot's body frame, providing orientation. | 3 |
-| Joint Position Error | The deviation of each joint from the default/neutral pose (`q - q_default`). | 12 |
-| Joint Velocity | The angular velocity of each joint. | 12 |
-| Previous Action | The action taken in the previous timestep, for temporal consistency. | 12 |
-| Ball Position | The ball's position relative to the robot's body frame (`x, y, z`). | 3 |
-| Ball Velocity | The ball's velocity relative to the robot's body frame (`x, y, z`). | 3 |
-| Catch State | A binary flag indicating if a catch has been made in the current episode. | 1 |
+| `lin_vel_b` | The robot's linear velocity in the body frame (`x, y, z`). | 3 |
+| `ang_vel_b` | The robot's angular velocity in the body frame (`roll, pitch, yaw`). | 3 |
+| `projected_gravity_b` | The projected gravity vector in the body frame | 3 |
+| `joint_pos_delta` | The deviation of each joint from the default/neutral pose. | 12 |
+| `joint_vel` | The joint velocity of each joint. | 12 |
+| `previous_actions` | The action taken in the previous timestep. | 12 |
+| `ball_pos_b` | The ball's position relative to the robot's body frame (`x, y, z`). | 3 |
+| `ball_vel_b` | The ball's velocity relative to the robot's body frame (`x, y, z`). | 3 |
+| `catch_state` | A binary flag indicating if the catch event is active. | 1 |
 | | | |
 | **Action Space** | | **12** |
-| Target Joint Position Offsets | The policy outputs a vector of target joint position *deviations* from the default pose. This is scaled and added to the default positions to produce the final PD target for the motors. | 12 |
+| Target Joint Position Offsets | The policy outputs a vector of target deviations from the default pose. | 12 |
 | | | |
 | **Reward Structure** | *Note: Terms are modulated across curriculum stages.* | |
 | *Task-Specific Rewards* | | |
-| `catch_reward` | A large positive reward for successful contact between the ball and the head link. | |
-| `proximity_reward` | A shaped reward for near-misses, based on the minimum distance to the ball's trajectory. | |
-| `feet_air_time` | Encourages dynamic, athletic motion by rewarding time spent with feet off the ground. | |
-| `distance_to_catch_pen` | An exponential penalty on the XY distance to the predicted catch location, encouraging proactive movement towards the ball. | |
+| `catch_reward` | A large positive reward for successful contact between the ball and the upper head. | |
+| `proximity_reward` | A reward for near-misses. | |
+| `feet_air_time` | Canonical locomotion reward. | |
+| `distance_to_catch_pen` | A privileged reward on the 2D distance to the predicted catch location. | |
 | *Standard Motion Penalties* | | |
-| `action_rate_pen` | Penalizes the difference between consecutive actions to promote smoothness. | |
-| `projected_gravity_pen` | Penalizes deviation from an upright posture to maintain stability. | |
+| `action_rate_pen` | Penalizes the difference between consecutive actions to promote smoothness in outputs. | |
+| `projected_gravity_pen` | Penalizes deviation from a stable posture. | |
 | `undesired_contact_pen` | Penalizes contact between the ground and any part of the robot other than the feet. | |
-| `joint_torque_pen` | Penalizes high joint torques to encourage energy efficiency and smoother motions. | |
-| `joint_accel_pen` | Penalizes high joint accelerations to reduce jerky movements and wear. | |
+| `joint_torque_pen` | Creating "cost" for utilizing torque | |
+| `joint_accel_pen` | Creating "cost" for joint accelerations. | |
 
 #### Problem
 
