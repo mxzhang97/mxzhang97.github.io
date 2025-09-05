@@ -100,9 +100,20 @@ The earlier stages of the learning environments focuses on general omni-directio
 #### Atheletcism Comparison
 This plot shows the capability progression through the multi-stage curriculum for `action_scale = 0.5`.
 
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval3.png" alt="Curriculum Progression Drills Chart (Body Frame)">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 2: This chart shows the control policy's "atheletic" capabilities through the curriculum progression for the <code>action_scale = 0.5</code> policy. 
+  </figcaption>
+</figure>
+
+
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval2.png" alt="Curriculum Progression Drills Chart (Body Frame)">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 3: This chart shows the control policy's "atheletic" capabilities evaluated with fixed world frame throws. 
+  </figcaption>
+</figure>
 
 #### Learned Bias
 
