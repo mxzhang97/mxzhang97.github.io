@@ -221,7 +221,7 @@ We wanted to push the control policy's performance by increasing its expressiven
     <div class="video-item">
         <div class="video-container">
             <iframe 
-                src="https://www.youtube.com/embed/eXcGdqI3qyU?&autoplay=1&mute=1&loop=1&playlist=eXcGdqI3qyU&playsinline=1" 
+                src="https://www.youtube.com/embed/epfiz4wm3HU?&autoplay=1&mute=1&loop=1&playlist=epfiz4wm3HU&playsinline=1" 
                 title="Performance-Limit Curriculum General Catch (0.5-0.75 Action Scale)" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
