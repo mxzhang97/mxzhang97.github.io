@@ -68,12 +68,12 @@ The control problem is formulated as a standard reinforcement learning task. The
 | `joint_pos_delta` | The policy outputs a vector of target deviations from the default pose. | 12 |
 | | | |
 | **Reward Structure** | *Note: Terms are modulated across curriculum stages.* | |
-| *Task-Specific Rewards* | | |
+| _Task-Specific Rewards_ | | |
 | `catch_reward` | A large positive reward for successful contact between the ball and the upper head. | |
 | `proximity_reward` | A reward for near-misses. | |
 | `feet_air_time` | Canonical locomotion reward. | |
-| `distance_to_catch_pen` | A privileged reward on the 2D distance to the predicted catch location. | |
-| *Standard Motion Penalties* | | |
+| `xy_distance_reward` | A privileged reward on the 2D distance to the predicted catch location. | |
+| _Standard Motion Penalties_ | | |
 | `action_rate_pen` | Penalizes the difference between consecutive actions to promote smoothness in outputs. | |
 | `projected_gravity_pen` | Penalizes deviation from a stable posture. | |
 | `undesired_contact_pen` | Penalizes contact between the ground and any part of the robot other than the feet. | |
@@ -82,10 +82,13 @@ The control problem is formulated as a standard reinforcement learning task. The
 
 </div>
 
-#### Problem
 
-#### Curriculum Stage Comparison
-This scatter compares the control policy performance envelope across the learning environment cross section for `action_scale = 0.5` policy across a variety of throws (<2.2m, >3.2m are out of sample throws).
+### Curriculum Progression
+
+The earlier stages of the learning environments focuses on general omni-directional locomotion for intercepting the thrown ball. We utilize canonical locomotion rewards available in public domain, the privileged reward `xy_distance_reward`, and `proximity_reward` to facilitate this stage of learning (solving the sparse learning signal problem). Later stages of learning environments prioritize "atheleticism", and thus removes these reward terms and rely on the main `catch_reward` and the long-episode construction to embed value for stability.
+
+This scatter compares the control policy's performance envelope across the learning environment cross section for `action_scale = 0.5` policy across a variety of throws (<2.2m, >3.2m are out of sample throws).
+
 
 <div class="video-container">
   <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
