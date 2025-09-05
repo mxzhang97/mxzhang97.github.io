@@ -250,7 +250,7 @@ The general idea is to "hack" the policy's observation space by feeding it synth
 
   <!-- The caption is now a sibling to the video-container, so it will be visible -->
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-    <strong>The "Ghosted" policy in action, driven with a PS5 controller..
+    <strong>The "Ghosted" policy in action, driven with a PS5 controller.</strong>
   </figcaption>
   
 </figure>
