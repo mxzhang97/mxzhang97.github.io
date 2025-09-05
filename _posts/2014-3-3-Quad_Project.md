@@ -41,7 +41,7 @@ This project presents a learning-based solution for the predictive ballistic int
 ---
 
 ## Control Policy
-For brevity, we focus on the best control policy for this section. The learning problem is defined as this follows,
+For brevity, we focus on the best control policy for this section. We detail the problem formulation and behavioral insights discovered during the process. The learning problem is defined as this follows,
 
 ### The Problem Formulation
 
@@ -83,11 +83,11 @@ The control problem is formulated as a standard reinforcement learning task. The
 
 ### Curriculum Progression
 
-The earlier stages of the learning environments focuses on general omni-directional locomotion for intercepting the thrown ball. We utilize canonical locomotion rewards available in public domain, the privileged reward `xy_distance_reward`, and `proximity_reward` to facilitate this stage of learning (solving the sparse learning signal problem). Later stages of learning environments prioritize "atheleticism", and thus removes these reward terms and rely on the main `catch_reward` and the long-episode construction to embed value for stability.
+The earlier stages of the learning environments focuses on general omni-directional locomotion for intercepting the thrown ball. We utilize canonical locomotion rewards available in public domain, the privileged reward `xy_distance_reward`, and `proximity_reward` to facilitate this stage of learning (solving the sparse learning signal problem). Later stages of learning environments prioritize "atheleticism", and thus removes these reward terms and rely on the main `catch_reward` and the long-episode construction to implicitly teach stability.
 
 #### General "Catch" Capability
 
-Here we show the general catch, which is defined as catching a single instance of a ball thrown in the forward facing semi circle.
+First, we evaluate the performance of our policy for the general catch task: intercepting/catching a single throw in the forward facing semi circle.
 
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_scatter.png" alt="Curriculum Progression Scatter Plot">
@@ -100,9 +100,12 @@ Here we show the general catch, which is defined as catching a single instance o
   <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-#### Athleticism Comparison
+#### Athleticism & Learned Bias
 
-Here we show the policy's performance in specalized drills, where the ball is continously thrown after the policy completes each catch event, with the throw types following a predefined sequence (linear, zig-zag, right/left box drills). 
+Next, we evaluate the policy on specialized drills where the ball is thrown continously (after a catch/miss event). We also note a behavioral artifact induced by our learning environment. 
+
+*   **Fig 2 (Ego-centric Drills):** When drills are performed in an ego-centric frame (throws are sampled relative to the robot's current orientation), the policy exhibits healthy learning progression across the curriculum stages.
+*   **Fig 3 (World-frame Drills):** However, when the *same drills* are performed in a world-frame (throws are fixed, regardless of robot orientation), we see a significant performance drop, in particular for the "left box drill."
 
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval3.png" alt="Curriculum Progression Drills Chart (Body Frame)">
@@ -115,17 +118,13 @@ Here we show the policy's performance in specalized drills, where the ball is co
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval2.png" alt="Curriculum Progression Drills Chart (Body Frame)">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-    Fig 3: This chart shows the control policy's "atheletic" capabilities evaluated with fixed world frame throws. 
+    Fig 3: This chart shows drop in capability when evaluated with fixed world frame throws. 
   </figcaption>
 </figure>
 
-#### Learned Bias
+The performance difference between Fig 2. and Fig 3. reveals a learned yaw bias. Because excess yaw motion was never explicitly penalized in the learning environments, the policy developed an asymmetric ready position (likely to speed up pushoff/acceleration). This bias then causes an arcing interception trajectory (more acute in shorter distance throws), which further causes the robot's end orientation to yaw to the right. Within a world frame evaluation framework, this pushes subsequent throws outside the performance envelope of the control policy, causing failure. The likely cause for this artifact is due to the ego-centric nature of throw sampling within the learning environments. 
 
-Here we show the learning artifacts induced by an ego-centric learning environement (IE throws are continuously sampled relative to the robot's orientation within an episode). Comparing the evaluation results of Fig 2. and Fig. 3 above, we notice a marked difference in performance for the left box drill. This behaviorial artifact is induced by the ego-centric learning envrionment, as throws are always sampled relative to the robot's current orientation, any excess yaw motion (shown in the video below) is not explicitly penalized (from both a reward perspective, and a task perspective). Thus, we see that the yaw bias puts the throws outside the performance envelope of the policy within the world frame evaluation framework, causing failure for those samples. More simply put, the policy yaws right after catching the ball, in a learning environment where the throws are sampled relative to this orientation, the policy is not explcitly penalized for this behavior. However, when the throws are fixed to the world frame, the excess yaw moves the throw (relative to the robot) to outside the capabilities of the policy, causing failure. 
-
----
-
-We show two video examples of this below. The first example is the artifact in action during the initial stabilization phase (after the asset spawns within the simulation), this is the 0.75 action-scale (we found the most extreme version of this) and a scatter plot within the "General Catch" evaluation framework. The yaw bias active in the initial stabilization phase of the episode angles the robot to the right, and thus causes failure for throws coming from the left. The second example goes back our best policy, `action_scale = 0.5` is showing for shorter distance throws within the specialized drills evaluation framework (World Frame), we show this yaw bias throughout the catch task, as the initial pushoff yaws the robot, then the interception arc corrects, but results in a yawed orientation after the throw. This puts the robot at a disadvantageous position for subsequent throws (since they're still directionally anchored to the World Frame), causing failure.
+We show two video examples of this below. The first example is the artifact in action during the initial stabilization phase (after the asset spawns within the simulation), this is the 0.75 action-scale (we found the most extreme version of this) and a scatter plot of the policy under the "General Catch" evaluation framework. The yaw bias active in the initial stabilization phase of the episode angles the robot to the right, and thus causes failure for throws coming from the left. The second example, going back our `action_scale = 0.5` policy, focuses on shorter distance throws within the specialized drills evaluation framework (World Frame). We show this yaw bias throughout the catch task: the initial pushoff, the arcing path, and the resulting orientation after the catch.
 
 <!-- HOW-TO: Go to your YouTube video, click "Share" -> "Embed", and copy the src="..." URL here. -->
 <div class="video-grid">
@@ -184,6 +183,7 @@ Here we look at the performance/tradeoffs of increasing action_scale.
   <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
+---
 
 ## Ghosting
 
