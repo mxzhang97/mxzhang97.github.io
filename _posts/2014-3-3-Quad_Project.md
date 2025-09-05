@@ -89,6 +89,12 @@ The earlier stages of the learning environments focuses on general omni-directio
 
 This scatter compares the control policy's performance envelope across the learning environment cross section for `action_scale = 0.5` policy across a variety of throws (<2.2m, >3.2m are out of sample throws).
 
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/curriculum_scatter.png" alt="Curriculum Progression Scatter Plot">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 1: This scatter compares the control policy's performance envelope across the learning environment cross section for the <code>action_scale = 0.5</code> policy. Throws &lt;2.2m and &gt;3.2m are out-of-sample.
+  </figcaption>
+</figure>
 
 <div class="video-container">
   <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
