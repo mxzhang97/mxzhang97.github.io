@@ -78,7 +78,4 @@ Here we'll briefly talk about the DR on observation space to find the +/- 0.05 t
 
 ---
 
-## Project Assets
 
-*   **[Read the Full Written Report (PDF)]({{ site.baseurl }}/assets/Project_Chimera_Report.pdf)** - A detailed, five-act narrative report written in the style of a "Friday check-in."
-*   **[Explore the Code on GitHub](https://github.com/your-username/your-repo-name)** - The complete source code, analysis scripts, and trained models.
