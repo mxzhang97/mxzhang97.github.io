@@ -236,14 +236,24 @@ We wanted to push the control policy's performance by increasing its expressiven
 
 ## Ghosting
 
-#### Empirical Repurposing of Policy
+In this section, we repurpose the control policy (`action_scale=0.5, skill_balanced`) into a locomotion controller. 
 
-We repurpose the control policy by mapping an empirical controller and passing in fake ball_state observations to the control policy.
+The general idea is to "hack" the policy's observation space by feeding it synthetic `ball_pos_b` and `ball_vel_b` such that we can access certain behaviorial properties "on-demand". In the below video sample, we use a PS5 controller to control the synthetic `ball_state` the policy sees at any given moment. The PS5 Controller interface is defined as L2 is Brake, R2 is Gas, left/right joystick "steers" the robot, and the "X" button is emergency stop.
 
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
 
+<figure style="text-align: center; margin: 1.5rem auto;">
+
+  <!-- This is the video container, with ONLY the iframe inside -->
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/Y5Rdwf-AbWo?&autoplay=1&mute=1&loop=1&playlist=Y5Rdwf-AbWo&playsinline=1" title="Ghosting Full Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- The caption is now a sibling to the video-container, so it will be visible -->
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    <strong>The "Ghosted" policy in action, driven with a PS5 controller..
+  </figcaption>
+  
+</figure>
 
 ## Perception
 
