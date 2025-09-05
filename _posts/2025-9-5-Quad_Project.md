@@ -255,6 +255,8 @@ The general idea is to "hack" the policy's observation space by feeding it synth
   
 </figure>
 
+---
+
 ## Perception
 
 #### LSTM Denoiser
