@@ -69,13 +69,15 @@ body {
 }
 
 .compact-table {
-  /* This is the new, more robust centering method */
-  display: grid;
-  place-items: center;
-
-  /* These are the lines you already have */
+  /* We only need the font styles on the container div */
   font-size: 0.8em; 
   line-height: 1.3;
+}
+
+/* THIS IS THE KEY: Target the table directly and center it */
+.compact-table table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Also target the code blocks inside the table */
