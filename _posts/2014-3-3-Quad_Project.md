@@ -41,8 +41,44 @@ This project presents a learning-based solution for the predictive ballistic int
 ---
 
 ## Control Policy
-For brevity, we focus on the best control policy for this section. The learning problem is defined as this, and the key learning environments are structured like this.
+For brevity, we focus on the best control policy for this section. The learning problem is defined as this follows,
 
+---
+
+### The Problem Formulation
+
+The control problem is formulated as a standard reinforcement learning task. The policy is trained to map observations from a 52-dimensional space to actions in a 12-dimensional space to maximize a cumulative reward. The specific components are detailed below.
+
+| Component | Description | Dimension |
+| :--- | :--- | :---: |
+| **Observation Space** | | **52** |
+| Root Linear Velocity | The robot's linear velocity in the body frame (`x, y, z`). | 3 |
+| Root Angular Velocity | The robot's angular velocity in the body frame (`roll, pitch, yaw`). | 3 |
+| Projected Gravity | The gravity vector projected onto the robot's body frame, providing orientation. | 3 |
+| Joint Position Error | The deviation of each joint from the default/neutral pose (`q - q_default`). | 12 |
+| Joint Velocity | The angular velocity of each joint. | 12 |
+| Previous Action | The action taken in the previous timestep, for temporal consistency. | 12 |
+| Ball Position | The ball's position relative to the robot's body frame (`x, y, z`). | 3 |
+| Ball Velocity | The ball's velocity relative to the robot's body frame (`x, y, z`). | 3 |
+| Catch State | A binary flag indicating if a catch has been made in the current episode. | 1 |
+| | | |
+| **Action Space** | | **12** |
+| Target Joint Position Offsets | The policy outputs a vector of target joint position *deviations* from the default pose. This is scaled and added to the default positions to produce the final PD target for the motors. | 12 |
+| | | |
+| **Reward Structure** | *Note: Terms are modulated across curriculum stages.* | |
+| *Task-Specific Rewards* | | |
+| `catch_reward` | A large positive reward for successful contact between the ball and the head link. | |
+| `proximity_reward` | A shaped reward for near-misses, based on the minimum distance to the ball's trajectory. | |
+| `feet_air_time` | Encourages dynamic, athletic motion by rewarding time spent with feet off the ground. | |
+| `distance_to_catch_pen` | An exponential penalty on the XY distance to the predicted catch location, encouraging proactive movement towards the ball. | |
+| *Standard Motion Penalties* | | |
+| `action_rate_pen` | Penalizes the difference between consecutive actions to promote smoothness. | |
+| `projected_gravity_pen` | Penalizes deviation from an upright posture to maintain stability. | |
+| `undesired_contact_pen` | Penalizes contact between the ground and any part of the robot other than the feet. | |
+| `joint_torque_pen` | Penalizes high joint torques to encourage energy efficiency and smoother motions. | |
+| `joint_accel_pen` | Penalizes high joint accelerations to reduce jerky movements and wear. | |
+
+#### Problem
 
 #### Curriculum Stage Comparison
 This scatter compares the control policy performance envelope across the learning environment cross section for `action_scale = 0.5` policy across a variety of throws (<2.2m, >3.2m are out of sample throws).
