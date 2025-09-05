@@ -98,6 +98,7 @@ First, we evaluate the performance of our policy for the general catch task: int
 
 <div class="video-container">
   <iframe src="https://www.youtube.com/embed/TXPPXhezn3E" title="General Catch (2m-3m)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Left:</strong> General Catch (0.5 Action Scale) </p>
 </div>
 
 #### Athleticism & Learned Bias
