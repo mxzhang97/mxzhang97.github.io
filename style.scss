@@ -67,6 +67,18 @@ body {
         flex-direction: column;
     }
 }
+
+.compact-table table {
+  font-size: 0.9em; /* Makes font 10% smaller. Adjust as needed. */
+  line-height: 1.3; /* Reduces spacing between lines */
+}
+
+/* Also target the code blocks inside the table */
+.compact-table code {
+  font-size: 0.85em; /* Make code blocks even a bit smaller */
+}
+
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   color: $darkerGray;
