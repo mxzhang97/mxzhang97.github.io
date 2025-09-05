@@ -49,6 +49,8 @@ For brevity, we focus on the best control policy for this section. The learning 
 
 The control problem is formulated as a standard reinforcement learning task. The policy is trained to map observations from a 52-dimensional space to actions in a 12-dimensional space.
 
+<div class="compact-table" markdown="1">
+    
 | Component | Description | Dimension |
 | :--- | :--- | :---: |
 | **Observation Space** | | **52** |
@@ -77,6 +79,8 @@ The control problem is formulated as a standard reinforcement learning task. The
 | `undesired_contact_pen` | Penalizes contact between the ground and any part of the robot other than the feet. | |
 | `joint_torque_pen` | Creating "cost" for utilizing torque | |
 | `joint_accel_pen` | Creating "cost" for joint accelerations. | |
+
+</div>
 
 #### Problem
 
