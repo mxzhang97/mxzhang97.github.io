@@ -97,7 +97,7 @@ First, we evaluate the performance of our policy for the general catch task: int
 </figure>
 
 <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/TXPPXhezn3E" title="General Catch (2m-3m)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/TXPPXhezn3E?&autoplay=1&mute=1&loop=1&playlist=TXPPXhezn3E&playsinline=1" title="General Catch (2m-3m)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
      <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Left:</strong> General Catch (0.5 Action Scale) </p>
 </div>
 
@@ -133,7 +133,7 @@ We show two video examples of this below. The first example is the artifact in a
     <div class="video-item">
         <div class="video-container">
             <iframe 
-                src="https://www.youtube.com/embed/9RqDOknEkl8?&autoplay=1&mute=1&loop=1&playlist=-F0L2Z_LisA&playsinline=1" 
+                src="https://www.youtube.com/embed/9RqDOknEkl8?&autoplay=1&mute=1&loop=1&playlist=9RqDOknEkl8&playsinline=1" 
                 title="Yaw Bias in Stabilization Phase (0.75 Action Scale)" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -146,7 +146,7 @@ We show two video examples of this below. The first example is the artifact in a
     <div class="video-item">
         <div class="video-container">
             <iframe 
-                src="https://www.youtube.com/embed/FOjMmsoMRs4?&autoplay=1&mute=1&loop=1&playlist=Y5Rdwf-AbWo&playsinline=1" 
+                src="https://www.youtube.com/embed/FOjMmsoMRs4?&autoplay=1&mute=1&loop=1&playlist=FOjMmsoMRs4&playsinline=1" 
                 title="World Frame Evaluation Failure (0.5 Action Scale)" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
