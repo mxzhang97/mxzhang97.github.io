@@ -3,7 +3,7 @@ layout: post
 title: "Project Chimera: A Novel Control Methodology for Legged Robots"
 ---
 
-### Problem Description and Learning-Based Solution
+### Abstract
 This report and subsequent analysis focuses on a learning based solution for the predictive ballistic interception task ("catching"/colliding with a thrown ball) for a quadruped (Go2). We utilize a multi-stage curriculum, with each curriculum stage focusing on solving/developing a different dimension of the learning problem. The result is a control policy capable of emergent atheletic intelligence, and a conversion methodology we'll call "Ghosting" to repurpose this control policy into a locomotion controller.
 
 ---
@@ -15,31 +15,66 @@ This report and subsequent analysis focuses on a learning based solution for the
 
 ---
 
-## The Evidence: Key Results
-The following plots were generated from the final, validated datasets. They provide quantitative proof of the "Ghosting" controller's effectiveness.
+## Control Policy
+For brevity, we focus on the best control policy for this section. The learning problem is defined as this, and the key learning environments are structured like this.
 
-#### Outcome Scatter Plot
-This plot shows a high success rate and robust performance envelope for the `skill_balanced_0.5` policy across a variety of simulated terrains and conditions.
 
-<!-- HOW-TO: Create an 'images' folder in the root of your repository, upload your plot, and link it here. -->
-![Outcome Scatter Plot]({{ site.baseurl }}/images/outcome_scatter_plot.png)
-*Fig 1: A high density of successful outcomes (blue) demonstrates the controller's reliability.*
+#### Curriculum Stage Comparison
+This scatter compares the control policy performance envelope across the learning environment cross section for `action_scale = 0.5` policy across a variety of throws (<2.2m, >3.2m are out of sample throws).
 
-#### Aggregate Torque Stability Plot
-This plot illustrates the smoothness of the control signals. The significantly lower torque variance when using the "Ghosting" controller is a direct indicator of improved stability and efficiency.
-
-![Aggregate Torque Stability Plot]({{ site.baseurl }}/images/torque_stability_plot.png)
-*Fig 2: The 'Ghosting' policy (green) shows markedly lower torque variance compared to the baseline controller.*
-
----
-
-## Technical Showcase
-This video provides a slow-motion, detailed look at the controller's performance across different gaits. Data overlays highlight key performance metrics in real-time.
-
-<!-- HOW-TO: Get the embed URL for your second video here. -->
 <div class="video-container">
-  <iframe src="https://www.youtube.com/embed/YOUR_TECHNICAL_VIDEO_ID" title="Technical Showcase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+#### Atheletcism Comparison
+This plot shows the capability progression through the multi-stage curriculum for `action_scale = 0.5`.
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+#### Learned Bias
+
+Here we show the learning artifacts induced by an ego-centric learning environement (IE throws are sampled relative to the robot's orientation.)
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+#### Expressiveness vs Stability
+
+Here we look at the performance/tradeoffs of increasing action_scale.
+
+[scatter of action_scale cross section]
+
+[plot of eval2, world frame evaluation showing learned bias again across the action_scales]
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+## Ghosting
+
+#### Empirical Repurposing of Policy
+
+We repurpose the control policy by mapping an empirical controller and passing in fake ball_state observations to the control policy.
+
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/YOUR_TRAILER_VIDEO_ID" title="Project Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+
+## Perception
+
+#### LSTM Denoiser
+
+Here we'll briefly talk about the DR on observation space to find the +/- 0.05 tolerance for the control policy as the target for the RNN denoiser. The training data is captured from simulation playback.
+
+[table of performance metrics between ground truth, noisy observation, denoised observation]
+
+
 
 ---
 
