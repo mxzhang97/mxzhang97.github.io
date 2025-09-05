@@ -92,7 +92,7 @@ First, we evaluate the performance of our policy for the general catch task: int
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_scatter.png" alt="Curriculum Progression Scatter Plot">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-    Fig 1: This scatter compares the control policy's performance envelope across the learning environment cross section for the <code>action_scale = 0.5</code> policy. Throws &lt;2.2m and &gt;3.2m are out-of-sample.
+    Fig 1: This scatter compares the control policy's performance envelope through the curriculum progression for the <code>action_scale = 0.5</code> policy. Throws &lt;2.2m and &gt;3.2m are out-of-sample.
   </figcaption>
 </figure>
 
@@ -156,19 +156,6 @@ We show two video examples of this below. The first example is the artifact in a
     </div>
 </div>
 
-<figure style="text-align: center;">
-  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_scatter.png" alt="Curriculum Progression Scatter Plot">
-  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-    Fig 1: This scatter compares the control policy's performance envelope across the learning environment cross section for the <code>action_scale = 0.5</code> policy. Throws &lt;2.2m and &gt;3.2m are out-of-sample.
-  </figcaption>
-</figure>
-
-<figure style="text-align: center;">
-  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval3.png" alt="Curriculum Progression Drills Chart (Body Frame)">
-  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-    Fig 2: This chart shows the control policy's "atheletic" capabilities through the curriculum progression for the <code>action_scale = 0.5</code> policy. 
-  </figcaption>
-</figure>
 
 
 #### Expressiveness vs Stability
