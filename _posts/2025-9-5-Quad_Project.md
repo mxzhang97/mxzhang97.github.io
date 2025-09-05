@@ -96,10 +96,19 @@ First, we evaluate the performance of our policy for the general catch task: int
   </figcaption>
 </figure>
 
-<div class="video-container">
-  <iframe src="https://www.youtube.com/embed/TXPPXhezn3E?&autoplay=1&mute=1&loop=1&playlist=TXPPXhezn3E&playsinline=1" title="General Catch (2m-3m)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <p style="text-align: center; font-size: 0.9em; color: #666;">General Catch (0.5 Action Scale)</p>
-</div>
+<figure style="text-align: center; margin: 1.5rem auto;">
+
+  <!-- This is the video container, with ONLY the iframe inside -->
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/TXPPXhezn3E?&autoplay=1&mute=1&loop=1&playlist=TXPPXhezn3E&playsinline=1" title="General Catch (2m-3m)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- The caption is now a sibling to the video-container, so it will be visible -->
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    <strong>General Catch:</strong> Baseline capability of the <code>action_scale=0.5</code> policy.
+  </figcaption>
+  
+</figure>
 
 #### Athleticism & Learned Bias
 
