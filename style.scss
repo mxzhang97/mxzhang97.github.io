@@ -68,16 +68,20 @@ body {
     }
 }
 
-.compact-table table {
-  font-size: 0.9em; /* Makes font 10% smaller. Adjust as needed. */
-  line-height: 1.3; /* Reduces spacing between lines */
+.compact-table {
+  /* Add these two lines to center the table */
+  display: flex;
+  justify-content: center;
+
+  /* These are the lines you already have */
+  font-size: 0.8em; 
+  line-height: 1.3;
 }
 
 /* Also target the code blocks inside the table */
 .compact-table code {
-  font-size: 0.85em; /* Make code blocks even a bit smaller */
+  font-size: 0.75em; 
 }
-
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
