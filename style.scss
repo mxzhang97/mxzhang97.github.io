@@ -69,9 +69,9 @@ body {
 }
 
 .compact-table {
-  /* Add these two lines to center the table */
-  display: flex;
-  justify-content: center;
+  /* This is the new, more robust centering method */
+  display: grid;
+  place-items: center;
 
   /* These are the lines you already have */
   font-size: 0.8em; 
