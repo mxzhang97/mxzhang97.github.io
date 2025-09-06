@@ -257,16 +257,5 @@ The general idea is to "hack" the policy's observation space by feeding it synth
 
 ---
 
-## Perception
-
-#### LSTM Denoiser
-
-Here we'll briefly talk about the DR on observation space to find the +/- 0.05 tolerance for the control policy as the target for the RNN denoiser. The training data is captured from simulation playback.
-
-[table of performance metrics between ground truth, noisy observation, denoised observation]
-
-
-
----
 
 
