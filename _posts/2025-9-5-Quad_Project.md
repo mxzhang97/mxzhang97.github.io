@@ -52,14 +52,14 @@ The control problem is formulated as a standard reinforcement learning task. The
 | Component | Description | Dimension |
 | :--- | :--- | :---: |
 | **Observation Space** | | **52** |
-| `lin_vel_b` | The robot's linear velocity in the body frame (`x, y, z`). | 3 |
-| `ang_vel_b` | The robot's angular velocity in the body frame (`roll, pitch, yaw`). | 3 |
+| `lin_vel_b` | The robot's linear velocity in the body frame. | 3 |
+| `ang_vel_b` | The robot's angular velocity in the body frame. | 3 |
 | `projected_gravity_b` | The projected gravity vector in the body frame | 3 |
 | `joint_pos_delta` | The deviation of each joint from the default/neutral pose. | 12 |
 | `joint_vel` | The joint velocity of each joint. | 12 |
 | `previous_actions` | The action taken in the previous timestep. | 12 |
-| `ball_pos_b` | The ball's position relative to the robot's body frame (`x, y, z`). | 3 |
-| `ball_vel_b` | The ball's velocity relative to the robot's body frame (`x, y, z`). | 3 |
+| `ball_pos_b` | The ball's position relative to the robot's body frame. | 3 |
+| `ball_vel_b` | The ball's velocity relative to the robot's body frame. | 3 |
 | `catch_state` | A binary flag indicating if the catch event is active. | 1 |
 | | | |
 | **Action Space** | | **12** |
