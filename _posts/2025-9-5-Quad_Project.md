@@ -83,7 +83,7 @@ The control problem is formulated as a standard reinforcement learning task. The
 
 ### Curriculum Progression
 
-The earlier stages of the learning environments focuses on general omni-directional locomotion for intercepting the thrown ball. We utilize canonical locomotion rewards available in public domain, the privileged reward `xy_distance_reward`, and `proximity_reward` to facilitate this stage of learning (solving the sparse learning signal problem). Later stages of learning environments prioritize "atheleticism", and thus removes these reward terms and rely on the main `catch_reward` and the long-episode construction to implicitly teach stability.
+The earlier stages of the learning environments focuse on general omni-directional locomotion for intercepting the thrown ball. We utilize canonical locomotion rewards available in public domain, the privileged reward `xy_distance_reward`, and `proximity_reward` to facilitate this stage of learning (solving the sparse learning signal problem). Later stages of learning environments prioritize "atheleticism", and thus removes these reward terms and rely on the main `catch_reward` and the long-episode construction to implicitly teach stability.
 
 #### General "Catch" Capability
 
