@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "End to End Ballistic Interception and Emergent Athleticism of Quadrupedal Robot"
+title: "End to End Ballistic Interception and Emergent Athleticism for a Quadrupedal Robot"
 ---
 
 ### Abstract
@@ -41,7 +41,7 @@ This project presents a learning-based solution for the predictive ballistic int
 ---
 
 ## Control Policy
-For brevity, we focus on the best control policy for this section. We detail the problem formulation and behavioral insights discovered during the process. The learning problem is defined as this follows,
+For brevity, we focus on the best control policy for this section. We detail the problem formulation and behavioral insights discovered during the process. The learning problem is defined as below,
 
 ### The Problem Formulation
 
@@ -87,7 +87,7 @@ The earlier stages of the learning environments focus on general omni-directiona
 
 #### General "Catch" Capability
 
-First, we evaluate the performance of our policy for the general catch task: intercepting/catching a single throw in the forward facing semi circle.
+First, we evaluate the performance of our policy for the general catch task: intercepting/catching a single throw in the forward-facing semi circle.
 
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_scatter.png" alt="Curriculum Progression Scatter Plot">
@@ -112,7 +112,7 @@ First, we evaluate the performance of our policy for the general catch task: int
 
 #### Athleticism & Learned Bias
 
-Next, we evaluate the policy on specialized drills where the ball is thrown continously (after a catch/miss event). We also note a behavioral artifact induced by our learning environment. 
+Next, we evaluate the policy on specialized drills where the ball is thrown continuously (after a catch/miss event). We also note a behavioral artifact induced by our learning environment. 
 
 *   **Fig 2 (Ego-centric Drills):** When drills are performed in an ego-centric frame (throws are sampled relative to the robot's current orientation), the policy exhibits healthy learning progression across the curriculum stages.
 *   **Fig 3 (World-frame Drills):** However, when the *same drills* are performed in a world-frame (throws are fixed, regardless of robot orientation), we see a significant performance drop, in particular for the "left box drill."
@@ -234,7 +234,7 @@ We wanted to push the control policy's performance by increasing its expressiven
 
 ### Robustness to Observation Noise (Ball State)
 
-Finally, we perform a baseline analysis to understand the control policy's inherent robustness to noisy observations. In a 2real deployment context, the `ball_state` provided to the control policy will have noise from a variety of sources (measurement noise/error, sensor fusion/post-processing approximations). To better understand the policy's response to noisy observations, we run our 0.5 action scale skill-balanced control policy through the same evaluation framework as above, with added uniform noise directly injected into the `(ball_pos_b, ball_vel_b)` observations. We present the results here for noise levels of 0.0, +/- 0.25 (m, m/s), +/- 0.5 (m, m/s). Interestingly, while the performance metric undoubtedly deteriorates as noise gets noisier :), the control policy still exhibits a satisfactory level of "intelligence" in its attempts. The failures are generally caused by the inability to pinpoint an exact intercept position/the suboptimal path taken due to pertubations in the observed `ball_state` throughout the attempt.
+Finally, we perform a baseline analysis to understand the control policy's inherent robustness to noisy observations. In a 2real deployment context, the `ball_state` provided to the control policy will have noise from a variety of sources (measurement noise/error, sensor fusion/post-processing approximations). To better understand the policy's response to noisy observations, we run our 0.5 action scale skill-balanced control policy through the same evaluation framework as above, with added uniform noise directly injected into the `(ball_pos_b, ball_vel_b)` observations. We present the results here for noise levels of 0.0, +/- 0.25 (m, m/s), +/- 0.5 (m, m/s). Interestingly, while the performance metric undoubtedly deteriorates as noise gets noisier :), the control policy still exhibits a satisfactory level of "intelligence" in its attempts. The failures are generally caused by the inability to pinpoint an exact intercept position/the suboptimal path taken due to perturbations in the observed `ball_state` throughout the attempt.
 
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_robustness_scatter.png" alt="Curriculum Progression Scatter Plot">
@@ -294,7 +294,7 @@ Finally, we perform a baseline analysis to understand the control policy's inher
 
 In this section, we repurpose the control policy (`action_scale=0.5, skill_balanced`) into a locomotion controller. 
 
-The general idea is to "hack" the policy's observation space by feeding it synthetic `ball_pos_b` and `ball_vel_b` such that we can access certain behaviorial properties "on-demand". In the below video sample, we use a PS5 controller to control the synthetic `ball_state` the policy sees at any given moment. The PS5 Controller interface is defined as L2 is Brake, R2 is Gas, left/right joystick "steers" the robot, and the "X" button is emergency stop.
+The general idea is to "hack" the policy's observation space by feeding it synthetic `ball_pos_b` and `ball_vel_b` such that we can access certain behavioral properties "on-demand". In the below video sample, we use a PS5 controller to control the synthetic `ball_state` the policy sees at any given moment. The PS5 Controller interface is defined as L2 is Brake, R2 is Gas, left/right joystick "steers" the robot, and the "X" button is emergency stop.
 
 
 <figure style="text-align: center; margin: 1.5rem auto;">
