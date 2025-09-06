@@ -284,7 +284,7 @@ Finally, we perform a baseline analysis to understand the control policy's inher
                 allowfullscreen>
             </iframe>
         </div>
-        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Right:</strong>0.5 Skill Balanced Policy under Noise with World Frame throws </p>
+        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Right:</strong> 0.5 Skill Balanced Policy under Noise with World Frame throws </p>
     </div>
 </div>
 
