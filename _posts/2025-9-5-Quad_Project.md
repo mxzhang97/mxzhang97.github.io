@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "End to End Ballistic Interception and Emergent Athleticism for a Quadrupedal Robot"
+title: "Ballistic Interception and Emergent Athleticism for a Quadrupedal Robot"
 ---
 
 ### Abstract
