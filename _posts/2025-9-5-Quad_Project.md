@@ -126,7 +126,7 @@ Next, we evaluate the policy on specialized drills where the ball is thrown cont
 
 
 <figure style="text-align: center;">
-  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval2.png" alt="Curriculum Progression Drills Chart (Body Frame)">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval2.png" alt="Curriculum Progression Drills Chart (World Frame)">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
     Fig 3: This chart shows drop in capability when evaluated with fixed world frame throws. 
   </figcaption>
@@ -229,6 +229,62 @@ We wanted to push the control policy's performance by increasing its expressiven
             </iframe>
         </div>
         <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Right:</strong> Performance Limit Curriculum, 3.2m-3.6m Throws (0.5-0.75 Action Scale)  </p>
+    </div>
+</div>
+
+### Robustness to Observation Noise (Ball State)
+
+Finally, we perform a baseline analysis to understand the control policy's inherent robustness to noisy observations. In a 2real deployment context, the `ball_state` provided to the control policy will have noise from a variety of sources (measurement noise/error, sensor fusion/post-processing approximations). To better understand the policy's response to noisy observations, we run our 0.5 action scale skill-balanced control policy through the same evaluation framework as above, with added uniform noise directly injected into the `(ball_pos_b, ball_vel_b)` observations. We present the results here for noise levels of 0.0, +/- 0.25 (m, m/s), +/- 0.5 (m, m/s). Interestingly, while the performance metric undoubtedly deteriorates as noise gets noisier :), the control policy still exhibits a satisfactory level of "intelligence" in its attempts. The failures are generally caused by the inability to pinpoint an exact intercept position/the suboptimal path taken due to pertubations in the observed `ball_state` throughout the attempt.
+
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_robustness_scatter.png" alt="Curriculum Progression Scatter Plot">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 8: Scatter comparing the control policy's performance envelope under noisy observations.
+  </figcaption>
+</figure>
+
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_robustness_eval3.png" alt="Robustness Drills Chart (Body Frame)">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 9: Robustness to noisy observations in Ego-Centric throws.
+  </figcaption>
+</figure>
+
+
+<figure style="text-align: center;">
+  <img src="{{ site.baseurl }}/images/action_scale_0.5_robustness_eval2.png" alt="Robustness Drills Chart (World Frame)">
+  <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
+    Fig 10: Robustness to noisy observations in World Frame throws.
+  </figcaption>
+</figure>
+
+
+<div class="video-grid">
+    <!-- Left Video: The Interception Skill -->
+    <div class="video-item">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/VoFzvNsg5DM?&autoplay=1&mute=1&loop=1&playlist=VoFzvNsg5DM&playsinline=1" 
+                title="Robustness in Body Frame Throws" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Left:</strong> 0.5 Skill Balanced Policy under Noise with Body Frame throws </p>
+    </div>
+    <!-- Right Video: The "Ghosting" Application -->
+    <div class="video-item">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/QkiTZTjmSMg?&autoplay=1&mute=1&loop=1&playlist=QkiTZTjmSMg&playsinline=1" 
+                title="Robustness in Body Frame Throws" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <p style="text-align: center; font-size: 0.9em; color: #666;"><strong>Right:</strong>0.5 Skill Balanced Policy under Noise with World Frame throws </p>
     </div>
 </div>
 
