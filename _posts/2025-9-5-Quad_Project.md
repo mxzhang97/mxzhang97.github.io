@@ -245,7 +245,7 @@ The general idea is to "hack" the policy's observation space by feeding it synth
 
   <!-- This is the video container, with ONLY the iframe inside -->
   <div class="video-container">
-    <iframe src="https://www.youtube.com/embed/brI8IX4nZOo?&autoplay=1&mute=1&loop=1&playlist=brI8IX4nZOo&playsinline=1" title="Ghosting Full Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/OxcPwQjB8XA?&autoplay=1&mute=1&loop=1&playlist=OxcPwQjB8XA&playsinline=1" title="Ghosting Full Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <!-- The caption is now a sibling to the video-container, so it will be visible -->
