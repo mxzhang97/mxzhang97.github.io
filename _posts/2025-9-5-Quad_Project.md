@@ -120,7 +120,7 @@ Next, we evaluate the policy on specialized drills where the ball is thrown cont
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/action_scale_0.5_curriculum_progression_eval3.png" alt="Curriculum Progression Drills Chart (Body Frame)">
   <figcaption style="font-size: 0.9em; color: #666; margin-top: 0.5rem;">
-    Fig 2: This chart shows the control policy's "atheletic" capabilities through the curriculum progression for the <code>action_scale = 0.5</code> policy. 
+    Fig 2: This chart shows the control policy's "athletic" capabilities through the curriculum progression for the <code>action_scale = 0.5</code> policy. 
   </figcaption>
 </figure>
 
@@ -177,7 +177,7 @@ We show two video examples of this below. The first example is the artifact in a
 
 #### Expressiveness vs Stability
 
-We wanted to push the control policy's performance by increasing its expressiveness through the `action_scale` hyperparameter. We hypothesized that the higher `action_scale` would produce faster and more dynamic movements. However, our results were more nuanced and counter-intuitive. (This is caveated by the fact that PD tuning was out of scope for this project). In essence, we observe that the higher action_scales cause instability that introduces more hesitant behavior. Likely this is the result of more frequent saturation of torque limits causing unpredictable joint responses, which then causes highly penalizing terminations within training, leading to more cautious behavior. Below, we show the speed profiles during a set of catch episodes, with both throws that are within the performance envelope (3.2m) and throws that are further (3.6m). We note specifically the undesired behavior of the `action_scale=0.6` in the below video example, where the control policy stutter-steps in its locomotion phase, not utilizing its full atheletic capability when pushing the envelope. In contrast, the `action_scale=0.5` control policy generally exhibits better behavior in this regard, and it is this stability that we capitalize in the later sections.
+We wanted to push the control policy's performance by increasing its expressiveness through the `action_scale` hyperparameter. We hypothesized that the higher `action_scale` would produce faster and more dynamic movements. However, our results were more nuanced and counter-intuitive. (This is caveated by the fact that PD tuning was out of scope for this project). In essence, we observe that the higher action_scales cause instability that introduces more hesitant behavior. Likely this is the result of more frequent saturation of torque limits causing unpredictable joint responses, which then causes highly penalizing terminations within training, leading to more cautious behavior. Below, we show the speed profiles during a set of catch episodes, with both throws that are within the performance envelope (3.2m) and throws that are further (3.6m). We note specifically the undesired behavior of the `action_scale=0.6` in the below video example, where the control policy stutter-steps in its locomotion phase, not utilizing its full athletic capability when pushing the envelope. In contrast, the `action_scale=0.5` control policy generally exhibits better behavior in this regard, and it is this stability that we capitalize in the later sections.
 
 <figure style="text-align: center;">
   <img src="{{ site.baseurl }}/images/vel_0.5.png" alt="Velocity Profile during Catch (0.5 Action Scale)">
